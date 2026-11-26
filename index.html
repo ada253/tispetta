@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TiSpetta – Scopri i bandi e i contributi per la tua impresa</title>
+<meta name="description" content="In 1 minuto scopri quali bandi, contributi a fondo perduto e agevolazioni puoi chiedere per la tua impresa o la tua nuova attività. Gratis, verificati sulle fonti ufficiali.">
+<link rel="canonical" href="https://ada253.github.io/tispetta/">
+<meta name="theme-color" content="#0b7a4b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TiSpetta">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Quanti soldi pubblici spettano alla tua impresa?">
+<meta property="og:description" content="Rispondi a 6 domande e scopri gratis bandi, contributi a fondo perduto e agevolazioni che puoi chiedere.">
+<meta property="og:url" content="https://ada253.github.io/tispetta/">
+<meta property="og:image" content="https://ada253.github.io/tispetta/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"TiSpetta","url":"https://ada253.github.io/tispetta/","applicationCategory":"BusinessApplication","operatingSystem":"Any","inLanguage":"it","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Scopri quali bandi e agevolazioni pubbliche puoi chiedere per la tua impresa."}
+</script>
+<style>
+  :root {
+    --verde: #0b7a4b;
+    --verde-2: #0f9a5f;
+    --verde-scuro: #075c38;
+    --verde-chiaro: #e7f5ee;
+    --oro: #f2b705;
+    --oro-chiaro: #fff6d9;
+    --rosso: #c62f2f;
+    --rosso-chiaro: #fdecec;
+    --blu-chiaro: #eaf1fd;
+    --blu: #1f4fd8;
+    --testo: #11231a;
+    --testo-2: #4b5d54;
+    --bordo: #dde6e1;
+    --sfondo: #f4f7f5;
+    --card: #ffffff;
+    --raggio: 16px;
+    --ombra: 0 1px 2px rgba(16, 35, 26, .06), 0 8px 24px rgba(16, 35, 26, .06);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--sfondo); color: var(--testo);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  a { color: var(--verde); }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  [hidden] { display: none !important; }
+
+  /* Header */
+  header.top { position: sticky; top: 0; z-index: 20; background: rgba(244, 247, 245, .92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--bordo); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -.02em; color: var(--testo); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .logo b { color: var(--verde); }
+  .logo .dot { width: 26px; height: 26px; border-radius: 8px; background: var(--verde); color: #fff; display: grid; place-items: center; font-size: 15px; }
+  .btn-ghost { border: 1px solid var(--bordo); background: #fff; border-radius: 999px; padding: 6px 14px; font-weight: 600; font-size: 14px; cursor: pointer; color: var(--testo); text-decoration: none; }
+
+  /* Hero */
+  .hero { padding: 36px 0 12px; }
+  .pill { display: inline-block; background: #fff; border: 1px solid var(--bordo); border-radius: 999px; padding: 4px 12px; font-size: 13px; color: var(--testo-2); }
+  h1 { font-size: clamp(30px, 7vw, 44px); line-height: 1.1; letter-spacing: -.025em; margin: 14px 0 12px; }
+  h1 em { font-style: normal; color: var(--verde); }
+  .lead { font-size: 18px; color: var(--testo-2); margin: 0 0 22px; max-width: 620px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 12px; padding: 14px 22px; font-weight: 700; font-size: 17px; cursor: pointer; text-decoration: none; transition: transform .05s, background .15s; }
+  .btn:active { transform: scale(.98); }
+  .btn-main { background: var(--verde); color: #fff; box-shadow: 0 6px 16px rgba(11, 122, 75, .25); }
+  .btn-main:hover { background: var(--verde-scuro); }
+  .btn-main:disabled { opacity: .5; cursor: not-allowed; }
+  .btn-sec { background: #fff; color: var(--testo); border: 1px solid var(--bordo); }
+  .btn-wa { background: #25d366; color: #fff; }
+  .btn-block { width: 100%; }
+  .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0 0; padding: 0; list-style: none; font-size: 14px; color: var(--testo-2); }
+  .trust li::before { content: "✓ "; color: var(--verde); font-weight: 800; }
+
+  /* Cards e sezioni */
+  .card { background: var(--card); border: 1px solid var(--bordo); border-radius: var(--raggio); box-shadow: var(--ombra); padding: 22px; }
+  section { margin: 28px 0; }
+  h2 { font-size: 24px; letter-spacing: -.02em; margin: 0 0 6px; line-height: 1.2; }
+  .sub { color: var(--testo-2); margin: 0 0 18px; }
+
+  /* Quiz */
+  .progress { height: 6px; background: var(--verde-chiaro); border-radius: 999px; overflow: hidden; margin: 0 0 18px; }
+  .progress > i { display: block; height: 100%; width: 0; background: var(--verde); border-radius: 999px; transition: width .3s; }
+  .step-count { font-size: 13px; color: var(--testo-2); font-weight: 600; margin-bottom: 4px; }
+  .q { font-size: 21px; font-weight: 750; margin: 0 0 4px; line-height: 1.25; }
+  .qhelp { color: var(--testo-2); font-size: 14px; margin: 0 0 14px; }
+  .opts { display: grid; gap: 10px; }
+  .opts.two { grid-template-columns: 1fr 1fr; }
+  .opt { position: relative; display: flex; align-items: center; gap: 12px; border: 1.5px solid var(--bordo); background: #fff; border-radius: 12px; padding: 13px 14px; cursor: pointer; font-weight: 600; transition: border-color .15s, background .15s; }
+  .opt:hover { border-color: #b9cdc2; }
+  .opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .opt .ic { font-size: 22px; width: 28px; text-align: center; flex: none; }
+  .opt small { display: block; font-weight: 400; color: var(--testo-2); font-size: 13px; }
+  .opt:has(input:checked) { border-color: var(--verde); background: var(--verde-chiaro); }
+  .opt:has(input:focus-visible) { outline: 3px solid rgba(11, 122, 75, .35); outline-offset: 2px; }
+  .opt .tick { margin-left: auto; width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid var(--bordo); flex: none; display: grid; place-items: center; font-size: 14px; color: #fff; }
+  .opt.radio .tick { border-radius: 50%; }
+  .opt:has(input:checked) .tick { background: var(--verde); border-color: var(--verde); }
+  .opt:has(input:checked) .tick::after { content: "✓"; }
+  select.field, input.field, textarea.field { width: 100%; border: 1.5px solid var(--bordo); border-radius: 12px; padding: 13px 14px; background: #fff; font-size: 16px; }
+  select.field:focus, input.field:focus, textarea.field:focus { outline: none; border-color: var(--verde); box-shadow: 0 0 0 3px rgba(11, 122, 75, .15); }
+  .subq { margin-top: 18px; }
+  .subq .q { font-size: 17px; }
+  .nav { display: flex; gap: 10px; margin-top: 20px; }
+  .nav .btn-main { flex: 1; }
+  .err { color: var(--rosso); font-size: 14px; margin: 10px 0 0; font-weight: 600; }
+
+  /* Risultati */
+  .res-head { background: linear-gradient(135deg, var(--verde-scuro), var(--verde-2)); color: #fff; border: 0; }
+  .res-head .k { font-size: 15px; opacity: .9; margin: 0; }
+  .res-head .big { font-size: clamp(40px, 11vw, 60px); font-weight: 850; letter-spacing: -.03em; line-height: 1.05; margin: 6px 0 4px; }
+  .res-head .note { font-size: 13px; opacity: .85; margin: 8px 0 0; }
+  .res-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .res-stats span { background: rgba(255, 255, 255, .16); border-radius: 999px; padding: 5px 12px; font-size: 14px; font-weight: 600; }
+  .alert { border-radius: 12px; padding: 12px 14px; font-weight: 600; font-size: 15px; margin: 14px 0 0; }
+  .alert.red { background: var(--rosso-chiaro); color: #8d1f1f; }
+  .bando { margin-top: 14px; padding: 18px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .tag { font-size: 12px; font-weight: 700; border-radius: 999px; padding: 3px 10px; background: var(--verde-chiaro); color: var(--verde-scuro); }
+  .tag.tipo { background: #eef2f0; color: var(--testo-2); }
+  .tag.urg { background: var(--rosso-chiaro); color: #8d1f1f; }
+  .tag.soon { background: var(--oro-chiaro); color: #7a5a00; }
+  .tag.arrivo { background: var(--blu-chiaro); color: var(--blu); }
+  .bando h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.25; }
+  .bando p { margin: 0 0 10px; color: var(--testo-2); }
+  .importo { background: var(--oro-chiaro); border-radius: 10px; padding: 10px 12px; font-weight: 700; color: #5e4600; font-size: 15px; margin: 10px 0; }
+  .importo small { display: block; font-weight: 500; color: #7a6420; font-size: 13px; margin-top: 2px; }
+  .bando .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .bando .acts .btn { padding: 11px 16px; font-size: 15px; }
+  .det { border-top: 1px dashed var(--bordo); margin-top: 14px; padding-top: 12px; font-size: 15px; }
+  .det dt { font-weight: 700; margin-top: 10px; }
+  .det dd { margin: 2px 0 0; color: var(--testo-2); }
+  .det ol { margin: 4px 0 0; padding-left: 20px; color: var(--testo-2); }
+  .det .tip { background: var(--verde-chiaro); border-radius: 10px; padding: 10px 12px; margin-top: 12px; color: var(--verde-scuro); }
+  .det .fonte { font-size: 13px; color: var(--testo-2); margin-top: 10px; }
+  .group-title { font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--testo-2); margin: 26px 0 0; }
+  .empty { text-align: center; }
+  .disclaimer { font-size: 13px; color: var(--testo-2); margin-top: 16px; }
+
+  /* Box esperto e condividi */
+  .expert { border: 2px solid var(--verde); }
+  .expert h2 { font-size: 21px; }
+  .share { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* Come funziona */
+  .steps { display: grid; gap: 12px; counter-reset: s; }
+  .steps .card { display: flex; gap: 14px; align-items: flex-start; padding: 18px; }
+  .steps .n { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--verde); color: #fff; font-weight: 800; display: grid; place-items: center; }
+  .steps h3 { margin: 2px 0 4px; font-size: 17px; }
+  .steps p { margin: 0; color: var(--testo-2); font-size: 15px; }
+
+  /* FAQ */
+  details { background: #fff; border: 1px solid var(--bordo); border-radius: 12px; padding: 14px 16px; margin-top: 10px; }
+  summary { font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 10px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--verde); font-weight: 800; font-size: 20px; line-height: 1; }
+  details[open] summary::after { content: "–"; }
+  details p { margin: 10px 0 0; color: var(--testo-2); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips span { background: #fff; border: 1px solid var(--bordo); border-radius: 999px; padding: 4px 10px; font-size: 13px; color: var(--testo-2); }
+
+  /* Modale */
+  .modal { position: fixed; inset: 0; z-index: 50; background: rgba(10, 25, 18, .55); display: flex; align-items: flex-end; justify-content: center; padding: 0; }
+  .modal .box { background: #fff; width: 100%; max-width: 520px; max-height: 92vh; overflow: auto; border-radius: 20px 20px 0 0; padding: 22px 18px calc(22px + env(safe-area-inset-bottom)); }
+  @media (min-width: 640px) { .modal { align-items: center; padding: 16px; } .modal .box { border-radius: 20px; } }
+  .modal h2 { font-size: 21px; }
+  .modal label.lbl { display: block; font-weight: 600; font-size: 14px; margin: 12px 0 6px; }
+  .check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--testo-2); margin-top: 12px; }
+  .check input { width: 20px; height: 20px; margin-top: 1px; flex: none; accent-color: var(--verde); }
+  .x { float: right; border: 0; background: #eef2f0; width: 34px; height: 34px; border-radius: 50%; font-size: 18px; cursor: pointer; }
+  .ok-msg { background: var(--verde-chiaro); color: var(--verde-scuro); border-radius: 12px; padding: 14px; font-weight: 600; }
+  .linkbtn { background: none; border: 0; color: var(--testo-2); text-decoration: underline; cursor: pointer; font-size: 14px; padding: 8px 0; }
+
+  footer { border-top: 1px solid var(--bordo); margin-top: 40px; padding: 24px 0 40px; font-size: 14px; color: var(--testo-2); }
+  footer a { color: var(--testo-2); }
+  .install-steps { display: grid; gap: 12px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .install-steps { grid-template-columns: 1fr 1fr; } }
+  .install-steps ol { margin: 6px 0 0; padding-left: 20px; color: var(--testo-2); font-size: 15px; }
+
+  .toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--testo); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 14px; z-index: 60; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="./"><span class="dot">€</span><span>Ti<b>Spetta</b></span></a>
+    <a class="btn-ghost" href="#installa" id="btnInstall">Installa l'app</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero" id="hero">
+    <span class="pill">Gratis · 1 minuto · Nessuna registrazione</span>
+    <h1>Ci sono soldi pubblici<br>per la tua impresa.<br><em>Scopri quanti.</em></h1>
+    <p class="lead">Rispondi a 6 domande: confrontiamo la tua attività con i bandi e le agevolazioni attive in Italia e ti diciamo quali puoi chiedere, quanto valgono ed entro quando.</p>
+    <a class="btn btn-main" href="#quiz" id="ctaHero">Scopri quanto ti spetta →</a>
+    <ul class="trust">
+      <li>Verificati sulle fonti ufficiali</li>
+      <li id="trustData">Aggiornato al 26 novembre 2026</li>
+      <li>Le tue risposte restano sul telefono</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <section id="quiz" aria-live="polite">
+    <div class="card" id="quizCard">
+      <div class="step-count" id="stepCount"></div>
+      <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+      <form id="quizForm" novalidate>
+
+        <!-- 1. Situazione -->
+        <div class="step" data-step="situazione">
+          <p class="q">Qual è la tua situazione?</p>
+          <p class="qhelp">Scegli quella che ti descrive meglio.</p>
+          <div class="opts">
+            <label class="opt radio"><input type="radio" name="situazione" value="esistente"><span class="ic">🏢</span><span>Ho già un'impresa o una partita IVA<small>Attività già aperta, anche da poco</small></span><span class="tick"></span></label>
+            <label class="opt radio"><input type="radio" name="situazione" value="nuova"><span class="ic">🚀</span><span>Voglio aprire una nuova attività<small>Non ho ancora la partita IVA</small></span><span class="tick"></span></label>
+          </div>
+        </div>
+
+        <!-- 2. Regione -->
+        <div class="step" data-step="regione" hidden>
+          <p class="q">In quale regione si trova (o si troverà) l'attività?</p>
+          <p class="qhelp">Molti bandi valgono solo in alcune regioni.</p>
+          <select class="field" name="regione" id="regione" aria-label="Regione">
+            <option value="">Scegli la regione…</option>
+          </select>
+        </div>
+
+        <!-- 3. Forma (solo esistenti) -->
+        <div class="step" data-step="forma" hidden>
+          <p class="q">Che tipo di attività è?</p>
+          <div class="opts">
+            <label class="opt radio"><input type="radio" name="forma" value="societa"><span class="ic">🏛️</span><span>Società<small>SRL, SRLS, SNC, SAS, SPA, cooperativa</small></span><span class="tick"></span></label>
+            <label class="opt radio"><input type="radio" name="forma" value="ditta"><span class="ic">🔧</span><span>Ditta individuale<small>Artigiano, commerciante, impresa individuale</small></span><span class="tick"></span></label>
+            <label class="opt radio"><input type="radio" name="forma" value="professionista"><span class="ic">💼</span><span>Libero professionista<small>Partita IVA senza iscrizione al Registro Imprese</small></span><span class="tick"></span></label>
+          </div>
+          <div class="subq" id="forfBox" hidden>
+            <p class="q">Sei in regime forfettario?</p>
+            <div class="opts two">
+              <label class="opt radio"><input type="radio" name="forfettario" value="si"><span>Sì</span><span class="tick"></span></label>
+              <label class="opt radio"><input type="radio" name="forfettario" value="no"><span>No</span><span class="tick"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Dimensione (solo esistenti) -->
+        <div class="step" data-step="dimensione" hidden>
+          <p class="q">Quanti dipendenti hai?</p>
+          <div class="opts two">
+            <label class="opt radio"><input type="radio" name="dip" value="0"><span>Nessuno</span><span class="tick"></span></label>
+            <label class="opt radio"><input type="radio" name="dip" value="1-9"><span>Da 1 a 9</span><span class="tick"></span></label>
+            <label class="opt radio"><input type="radio" name="dip" value="10-49"><span>Da 10 a 49</span><span class="tick"></span></label>
+            <label class="opt radio"><input type="radio" name="dip" value="50-249"><span>Da 50 a 249</span><span class="tick"></span></label>
+            <label class="opt radio"><input type="radio" name="dip" value="250+"><span>250 o più</span><span class="tick"></span></label>
+          </div>
+          <div class="subq">
+            <p class="q">Da quanto tempo è aperta l'attività?</p>
+            <div class="opts">
+              <label class="opt radio"><input type="radio" name="anni" value="<1"><span>Meno di 1 anno</span><span class="tick"></span></label>
+              <label class="opt radio"><input type="radio" name="anni" value="1-5"><span>Da 1 a 5 anni</span><span class="tick"></span></label>
+              <label class="opt radio"><input type="radio" name="anni" value=">5"><span>Più di 5 anni</span><span class="tick"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Chi sei -->
+        <div class="step" data-step="persone" hidden>
+          <p class="q" id="qPersone">Chi guida l'attività?</p>
+          <p class="qhelp">Seleziona tutto quello che è vero. Se nessuna vale, vai avanti.</p>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" name="under35" value="1"><span class="ic">🧑</span><span id="lblUnder35">La maggioranza dei soci ha meno di 36 anni</span><span class="tick"></span></label>
+            <label class="opt"><input type="checkbox" name="donne" value="1"><span class="ic">👩</span><span id="lblDonne">La maggioranza dei soci sono donne</span><span class="tick"></span></label>
+            <label class="opt" id="optDisocc" hidden><input type="checkbox" name="disoccupato" value="1"><span class="ic">📄</span><span>Oggi sono disoccupato, inoccupato o senza lavoro<small>Requisito di alcuni bandi per chi avvia un'attività</small></span><span class="tick"></span></label>
+            <label class="opt"><input type="checkbox" name="startup" value="1"><span class="ic">💡</span><span>È (o sarà) una startup innovativa<small>Iscritta alla sezione speciale del Registro Imprese</small></span><span class="tick"></span></label>
+          </div>
+        </div>
+
+        <!-- 6. Obiettivi -->
+        <div class="step" data-step="obiettivi" hidden>
+          <p class="q">Per cosa ti servirebbero i soldi?</p>
+          <p class="qhelp">Puoi sceglierne più di uno. Anche progetti futuri.</p>
+          <div class="opts" id="obiettiviBox"></div>
+        </div>
+
+        <p class="err" id="quizErr" hidden></p>
+        <div class="nav">
+          <button type="button" class="btn btn-sec" id="btnBack" hidden>←</button>
+          <button type="submit" class="btn btn-main" id="btnNext">Avanti →</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- RISULTATI -->
+  <section id="risultati" hidden aria-live="polite">
+    <div class="card res-head" id="resHead"></div>
+    <div id="resUrgent"></div>
+    <div id="resList"></div>
+    <p class="disclaimer">Le informazioni sono indicative e verificate sulle fonti ufficiali alla data indicata in ogni scheda. Le stime sono esempi prudenti: l'importo reale dipende dal tuo progetto e dalla valutazione dell'ente. Non è una consulenza: prima di presentare domanda controlla sempre il bando ufficiale.</p>
+
+    <div class="card expert" style="margin-top:22px">
+      <h2>Non hai tempo per le pratiche?</h2>
+      <p class="sub" style="margin-bottom:14px">Un esperto di finanza agevolata controlla i requisiti, prepara la domanda e la invia per te. La prima valutazione è gratuita.</p>
+      <button class="btn btn-main btn-block" type="button" data-esperto="">Voglio che un esperto lo faccia per me</button>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h2 style="font-size:19px">Conosci un imprenditore che dovrebbe saperlo?</h2>
+      <p class="sub" style="margin-bottom:14px">Mandagli il link: in 1 minuto scopre cosa spetta anche a lui.</p>
+      <div class="share">
+        <a class="btn btn-wa" id="shareWa" href="#" target="_blank" rel="noopener">Condividi su WhatsApp</a>
+        <button class="btn btn-sec" type="button" id="shareCopy">Copia il link</button>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:18px"><button class="linkbtn" type="button" id="btnRestart">Rifai il controllo con risposte diverse</button></p>
+  </section>
+
+  <!-- COME FUNZIONA -->
+  <section id="come">
+    <h2>Come funziona</h2>
+    <p class="sub">Niente da installare, niente moduli infiniti.</p>
+    <div class="steps">
+      <div class="card"><span class="n">1</span><div><h3>Rispondi a 6 domande</h3><p>Regione, tipo di attività, dimensione e cosa vuoi finanziare. Un minuto dal telefono.</p></div></div>
+      <div class="card"><span class="n">2</span><div><h3>Vedi cosa ti spetta</h3><p>Le agevolazioni adatte a te, quanto valgono, le scadenze e cosa serve per chiederle.</p></div></div>
+      <div class="card"><span class="n">3</span><div><h3>Fai da solo o fatti aiutare</h3><p>Segui i passaggi indicati, oppure lascia che un esperto prepari e invii la domanda per te.</p></div></div>
+    </div>
+  </section>
+
+  <!-- COSA CONTROLLIAMO -->
+  <section>
+    <h2>Cosa controlliamo</h2>
+    <p class="sub" id="countBandi">Le principali agevolazioni nazionali attive o in arrivo, verificate sulle fonti ufficiali.</p>
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <!-- COMMERCIALISTI -->
+  <section>
+    <div class="card">
+      <h2 style="font-size:20px">Sei un commercialista o un consulente?</h2>
+      <p class="sub" style="margin-bottom:14px">I tuoi clienti ti chiedono di continuo "c'è qualche bando per me?". Stiamo preparando una versione per controllare tutti i tuoi clienti insieme. Scrivici per provarla tra i primi.</p>
+      <a class="btn btn-sec" href="https://wa.me/393801707367?text=Ciao%2C%20sono%20un%20commercialista%2Fconsulente%20e%20mi%20interessa%20TiSpetta%20per%20i%20miei%20clienti" target="_blank" rel="noopener" data-track="whatsapp_commercialista">Scrivici su WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>Domande frequenti</h2>
+    <details><summary>È davvero gratis?</summary><p>Sì. Il controllo, le schede e gli avvisi sono gratuiti. Se scegli di farti aiutare da un esperto, la prima valutazione è gratuita e il costo della pratica te lo dice lui prima di iniziare: decidi tu.</p></details>
+    <details><summary>Come guadagnate allora?</summary><p>Quando una persona chiede di farsi aiutare, la mettiamo in contatto con un esperto di finanza agevolata, che ci riconosce una parte del suo compenso. A te non costa nulla in più.</p></details>
+    <details><summary>Le cifre sono garantite?</summary><p>No. Sono stime prudenti basate su esempi realistici, che ti fanno capire l'ordine di grandezza. L'importo reale dipende dal tuo progetto, dai requisiti e dalla valutazione dell'ente che gestisce il bando.</p></details>
+    <details><summary>Le mie risposte vengono salvate?</summary><p>Le risposte al controllo restano sul tuo telefono. Le riceviamo solo se ci lasci la tua email per gli avvisi o chiedi di essere contattato da un esperto. Leggi l'<a href="privacy.html">informativa privacy</a>.</p></details>
+    <details><summary>Ci sono anche i bandi della mia regione o del mio comune?</summary><p>Per ora controlliamo le principali agevolazioni nazionali. I bandi regionali e delle Camere di Commercio cambiano di continuo: lasciaci la tua email o scrivici su WhatsApp e ti segnaliamo quelli aperti nella tua zona.</p></details>
+    <details><summary>Ogni quanto aggiornate i bandi?</summary><p>Controlliamo le fonti ufficiali regolarmente. Ogni scheda riporta la data dell'ultima verifica e il link alla pagina ufficiale. I bandi scaduti spariscono da soli.</p></details>
+  </section>
+
+  <!-- INSTALLA -->
+  <section id="installa">
+    <h2>Installa l'app sul telefono</h2>
+    <p class="sub">TiSpetta si apre come un'app, con un tocco dalla schermata Home. Gratis e senza passare dagli store.</p>
+    <div class="install-steps">
+      <div class="card"><strong>iPhone</strong><ol><li>Apri questa pagina con Safari.</li><li>Tocca il pulsante Condividi (il quadrato con la freccia).</li><li>Tocca <b>Aggiungi alla schermata Home</b>.</li><li>Tocca <b>Aggiungi</b>.</li></ol></div>
+      <div class="card"><strong>Android</strong><ol><li>Apri questa pagina con Chrome.</li><li>Tocca il menu ⋮ in alto a destra.</li><li>Tocca <b>Installa app</b> o <b>Aggiungi a schermata Home</b>.</li><li>Conferma con <b>Installa</b>.</li></ol></div>
+    </div>
+  </section>
+
+  <!-- AIUTO -->
+  <section>
+    <div class="card">
+      <h2 style="font-size:20px">Hai bisogno di aiuto?</h2>
+      <p class="sub" style="margin-bottom:14px">Qualcosa non funziona o hai una domanda? Ti risponde una persona, non un robot.</p>
+      <div class="share">
+        <a class="btn btn-wa" href="https://wa.me/393801707367?text=Ciao%2C%20ho%20una%20domanda%20su%20TiSpetta" target="_blank" rel="noopener" data-track="whatsapp">Scrivici su WhatsApp</a>
+        <button class="btn btn-sec" type="button" id="btnReport">⚠️ Segnala un problema</button>
+      </div>
+      <form id="reportForm" hidden novalidate style="margin-top:14px">
+        <label class="lbl" for="repMsg" style="font-weight:600;font-size:14px">Cosa non va?</label>
+        <textarea class="field" id="repMsg" rows="3" maxlength="2000" placeholder="Descrivi il problema"></textarea>
+        <label class="lbl" for="repEmail" style="display:block;font-weight:600;font-size:14px;margin-top:10px">La tua email (facoltativa, per risponderti)</label>
+        <input class="field" id="repEmail" type="email" maxlength="254" autocomplete="email">
+        <button class="btn btn-main" type="submit" style="margin-top:12px">Invia segnalazione</button>
+        <p class="sub" id="repStatus" style="margin:10px 0 0"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>TiSpetta</strong> · Scopri i bandi e le agevolazioni per la tua impresa<br>
+    <a href="privacy.html">Privacy</a> · <a href="termini.html">Termini</a> · <a href="https://wa.me/393801707367" target="_blank" rel="noopener" data-track="whatsapp">Contatti</a>
+    <p style="margin:12px 0 0;font-size:13px">TiSpetta non è collegato a enti pubblici. Le informazioni sono indicative e non sostituiscono i bandi ufficiali né una consulenza professionale.</p>
+  </div>
+</footer>
+
+<!-- MODALE: sblocca dettagli + avvisi -->
+<div class="modal" id="mGate" hidden role="dialog" aria-modal="true" aria-labelledby="gTitle">
+  <div class="box">
+    <button class="x" type="button" data-close aria-label="Chiudi">×</button>
+    <h2 id="gTitle">Ricevi gli avvisi gratis</h2>
+    <p class="sub">Ti avvisiamo via email quando esce un nuovo bando adatto alla tua attività o quando uno dei tuoi sta per scadere.</p>
+    <form id="gateForm" novalidate>
+      <label class="lbl" for="gEmail">La tua email</label>
+      <input class="field" id="gEmail" type="email" maxlength="254" autocomplete="email" placeholder="nome@esempio.it" required>
+      <label class="check"><input type="checkbox" id="gConsenso"><span>Acconsento a ricevere via email gli avvisi sui bandi adatti a me. Posso cancellarmi in qualsiasi momento. Ho letto l'<a href="privacy.html" target="_blank">informativa privacy</a>.</span></label>
+      <button class="btn btn-main btn-block" type="submit" style="margin-top:16px" id="gBtn">Attiva gli avvisi e vedi i dettagli</button>
+      <p class="err" id="gErr" hidden></p>
+    </form>
+    <p style="text-align:center;margin:8px 0 0"><button class="linkbtn" type="button" id="gSkip">Continua senza email</button></p>
+  </div>
+</div>
+
+<!-- MODALE: esperto -->
+<div class="modal" id="mEsperto" hidden role="dialog" aria-modal="true" aria-labelledby="eTitle">
+  <div class="box">
+    <button class="x" type="button" data-close aria-label="Chiudi">×</button>
+    <h2 id="eTitle">Fatti aiutare da un esperto</h2>
+    <p class="sub" id="eSub">Ti ricontattiamo per una prima valutazione gratuita. Nessun impegno.</p>
+    <form id="espertoForm" novalidate>
+      <label class="lbl" for="eNome">Nome e cognome</label>
+      <input class="field" id="eNome" maxlength="100" autocomplete="name" required>
+      <label class="lbl" for="eTel">Telefono (anche WhatsApp)</label>
+      <input class="field" id="eTel" type="tel" maxlength="30" autocomplete="tel" inputmode="tel" required>
+      <label class="lbl" for="eEmail">Email (facoltativa)</label>
+      <input class="field" id="eEmail" type="email" maxlength="254" autocomplete="email">
+      <label class="lbl" for="eMsg">Raccontaci in breve il progetto (facoltativo)</label>
+      <textarea class="field" id="eMsg" rows="3" maxlength="1000" placeholder="Es. voglio comprare un macchinario da 80.000 €"></textarea>
+      <label class="check"><input type="checkbox" id="eConsenso"><span>Acconsento a essere contattato per questa richiesta e a condividere i dati con l'esperto che la seguirà. Ho letto l'<a href="privacy.html" target="_blank">informativa privacy</a>.</span></label>
+      <button class="btn btn-main btn-block" type="submit" style="margin-top:16px" id="eBtn">Richiedi la valutazione gratuita</button>
+      <p class="err" id="eErr" hidden></p>
+    </form>
+    <div id="eOk" hidden>
+      <p class="ok-msg">Fatto! Abbiamo ricevuto la tua richiesta: ti contattiamo entro 1 giorno lavorativo.</p>
+      <p class="sub">Vuoi fare prima? Scrivici direttamente:</p>
+      <a class="btn btn-wa btn-block" id="eWa" href="#" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<script src="bandi.js"></script>
+<script>
+  // Supabase: stesso progetto di HaiRagione, tabelle con prefisso ts_ (vedi supabase.sql).
+  // La chiave "publishable" è pubblica per natura: la protezione la fanno le regole RLS.
+  // Se restano vuoti, i moduli funzionano in modalità prova e non salvano nulla.
+  const SUPABASE_URL = 'https://ljenzpgvpbshctpratpo.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_um_bLdK5yrUHoqDmiBFmxQ_mk-EHql6';
+  const WA = '393801707367';
+  const SITE = 'https://ada253.github.io/tispetta/';
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const euro = (n) => '€' + Math.round(n).toLocaleString('it-IT');
+  const store = {
+    get(k) { try { return JSON.parse(localStorage.getItem('ts_' + k)); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem('ts_' + k, JSON.stringify(v)); } catch (e) { /* modalità privata */ } }
+  };
+
+  // ---------- Statistiche anonime (come HaiRagione) ----------
+  const qs = new URLSearchParams(location.search);
+  const UA = navigator.userAgent;
+  const IS_APP = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const DISPOSITIVO = /iphone|ipad|ipod/i.test(UA) ? 'ios' : /android/i.test(UA) ? 'android' : 'desktop';
+  const FONTE = (qs.get('src') || qs.get('utm_source') || (IS_APP ? 'app' : ''))
+    .toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 30) || null;
+
+  function sbHeaders() {
+    const h = { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Prefer': 'return=minimal' };
+    if (!SUPABASE_ANON_KEY.startsWith('sb_')) h['Authorization'] = 'Bearer ' + SUPABASE_ANON_KEY;
+    return h;
+  }
+  function sbInsert(table, row, keepalive) {
+    return fetch(SUPABASE_URL.replace(/\/$/, '') + '/rest/v1/' + table, {
+      method: 'POST', headers: sbHeaders(), body: JSON.stringify(row), keepalive: !!keepalive
+    });
+  }
+  function track(tipo, dettaglio) {
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) return;
+    try {
+      sbInsert('ts_eventi', { tipo, dettaglio: dettaglio ? String(dettaglio).slice(0, 200) : null, fonte: FONTE, dispositivo: DISPOSITIVO }, true).catch(() => {});
+    } catch (e) { /* le statistiche non devono mai bloccare il sito */ }
+  }
+  track('visita');
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-track]');
+    if (a) track(a.dataset.track);
+  });
+
+  // ---------- Date ----------
+  const DAY = 86400000;
+  function today() { const n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function pd(v) { if (!v) return null; const [y, m, d] = v.split('-').map(Number); return Date.UTC(y, m - 1, d); }
+  const fmt = (t) => new Date(t).toLocaleDateString('it-IT', { timeZone: 'UTC', day: 'numeric', month: 'long', year: 'numeric' });
+  const fmtShort = (t) => new Date(t).toLocaleDateString('it-IT', { timeZone: 'UTC', day: 'numeric', month: 'short' });
+
+  // Stato reale della scheda oggi: null se scaduta
+  function statoOggi(b) {
+    const t = today();
+    const ap = pd(b.apertura), sc = pd(b.scadenza);
+    if (sc !== null && sc < t) return null;
+    const giorni = sc !== null ? Math.round((sc - t) / DAY) : null;
+    if (b.stato === 'in_arrivo' && (ap === null || ap > t)) return { arrivo: true, ap, giorni };
+    return { arrivo: false, ap, giorni };
+  }
+
+  // ---------- Dati del quiz ----------
+  const REGIONI = ['Abruzzo', 'Basilicata', 'Calabria', 'Campania', 'Emilia-Romagna', 'Friuli-Venezia Giulia', 'Lazio', 'Liguria', 'Lombardia', 'Marche', 'Molise', 'Piemonte', 'Puglia', 'Sardegna', 'Sicilia', 'Toscana', 'Trentino-Alto Adige', 'Umbria', "Valle d'Aosta", 'Veneto'];
+  const OBIETTIVI = [
+    ['avvio', '🚀', 'Avviare l\'attività', 'Spese per aprire e partire'],
+    ['macchinari', '⚙️', 'Macchinari e attrezzature', 'Impianti, attrezzi, mezzi di lavoro'],
+    ['digitale', '💻', 'Digitale e sicurezza informatica', 'Software, cloud, computer, sito'],
+    ['assunzioni', '🤝', 'Assumere personale', 'Nuovi dipendenti'],
+    ['energia', '⚡', 'Risparmio energetico', 'Pompe di calore, impianti, solare'],
+    ['export', '🌍', 'Vendere all\'estero', 'Fiere, e-commerce, mercati esteri'],
+    ['marchi', '™️', 'Marchio, brevetto o design', 'Registrazione e valorizzazione'],
+    ['ricerca', '🔬', 'Ricerca e nuovi prodotti', 'Sviluppo e innovazione'],
+    ['sicurezza', '🦺', 'Sicurezza sul lavoro', 'Macchine più sicure, amianto'],
+    ['formazione', '🎓', 'Formazione del personale', 'Corsi per i dipendenti'],
+    ['liquidita', '🏦', 'Prestito o liquidità', 'Accesso al credito']
+  ];
+
+  const selReg = $('#regione');
+  REGIONI.forEach((r) => selReg.insertAdjacentHTML('beforeend', `<option>${esc(r)}</option>`));
+  $('#obiettiviBox').innerHTML = OBIETTIVI.map(([v, ic, t, s]) =>
+    `<label class="opt"><input type="checkbox" name="obiettivi" value="${v}"><span class="ic">${ic}</span><span>${esc(t)}<small>${esc(s)}</small></span><span class="tick"></span></label>`).join('');
+
+  // Elenco bandi monitorati (solo quelli non scaduti)
+  const attivi = BANDI.filter((b) => statoOggi(b));
+  $('#chips').innerHTML = attivi.map((b) => `<span>${esc(b.nome)}</span>`).join('');
+  $('#countBandi').textContent = `Oggi controlliamo ${attivi.length} agevolazioni nazionali attive o in arrivo, verificate sulle fonti ufficiali. Le scadute spariscono da sole.`;
+  const ultimaVerifica = BANDI.map((b) => b.verificato).sort().pop();
+  if (ultimaVerifica) $('#trustData').textContent = 'Aggiornato al ' + fmt(pd(ultimaVerifica));
+
+  // ---------- Navigazione del quiz ----------
+  const form = $('#quizForm');
+  const ALL_STEPS = ['situazione', 'regione', 'forma', 'dimensione', 'persone', 'obiettivi'];
+  let cur = 0;
+
+  function val(name) { const el = form.querySelector(`[name="${name}"]:checked`); return el ? el.value : ''; }
+  function vals(name) { return $$(`[name="${name}"]:checked`, form).map((i) => i.value); }
+  function stepsFor() {
+    return val('situazione') === 'nuova' ? ['situazione', 'regione', 'persone', 'obiettivi'] : ALL_STEPS;
+  }
+  function showStep() {
+    const steps = stepsFor();
+    $$('.step', form).forEach((s) => { s.hidden = s.dataset.step !== steps[cur]; });
+    $('#stepCount').textContent = `Domanda ${cur + 1} di ${steps.length}`;
+    $('#progressBar').style.width = ((cur + 1) / steps.length * 100) + '%';
+    $('#btnBack').hidden = cur === 0;
+    $('#btnNext').textContent = cur === steps.length - 1 ? 'Scopri cosa ti spetta →' : 'Avanti →';
+    $('#quizErr').hidden = true;
+    const nuova = val('situazione') === 'nuova';
+    $('#qPersone').textContent = nuova ? 'Parlaci di te' : 'Chi guida l\'attività?';
+    $('#lblUnder35').textContent = nuova ? 'Ho meno di 35 anni (o i soci sono in maggioranza under 35)' : 'La maggioranza dei soci ha meno di 36 anni';
+    $('#lblDonne').textContent = nuova ? 'Sono una donna (o i soci sono in maggioranza donne)' : 'La maggioranza dei soci sono donne';
+    $('#optDisocc').hidden = !nuova;
+  }
+  function syncForf() {
+    const f = val('forma');
+    $('#forfBox').hidden = !(f === 'ditta' || f === 'professionista');
+  }
+  form.addEventListener('change', (e) => {
+    if (e.target.name === 'forma') syncForf();
+    // Domande a scelta singola senza altre domande: vai avanti da solo
+    const step = stepsFor()[cur];
+    if (e.target.type === 'radio' && (step === 'situazione' || (step === 'forma' && e.target.name === 'forma' && e.target.value === 'societa'))) {
+      setTimeout(next, 180);
+    }
+    if (e.target.name === 'regione' && e.target.value) setTimeout(next, 180);
+  });
+  function errore(msg) { const e = $('#quizErr'); e.textContent = msg; e.hidden = false; }
+  function valida(step) {
+    if (step === 'situazione' && !val('situazione')) return 'Scegli una delle due opzioni.';
+    if (step === 'regione' && !selReg.value) return 'Scegli la regione.';
+    if (step === 'forma') {
+      if (!val('forma')) return 'Scegli il tipo di attività.';
+      if (!$('#forfBox').hidden && !val('forfettario')) return 'Dicci se sei in regime forfettario.';
+    }
+    if (step === 'dimensione') {
+      if (!val('dip')) return 'Scegli il numero di dipendenti.';
+      if (!val('anni')) return 'Dicci da quanto è aperta l\'attività.';
+    }
+    if (step === 'obiettivi' && !vals('obiettivi').length) return 'Scegli almeno un obiettivo.';
+    return '';
+  }
+  let iniziato = false;
+  function next() {
+    const steps = stepsFor();
+    const m = valida(steps[cur]);
+    if (m) return errore(m);
+    if (!iniziato) { iniziato = true; track('quiz_inizio'); }
+    if (cur < steps.length - 1) { cur++; showStep(); scrollQuiz(); }
+    else mostraRisultati(profilo(), true);
+  }
+  function scrollQuiz() { const top = $('#quiz').getBoundingClientRect().top + scrollY - 70; if (Math.abs(scrollY - top) > 40) scrollTo({ top, behavior: 'smooth' }); }
+  form.addEventListener('submit', (e) => { e.preventDefault(); next(); });
+  $('#btnBack').addEventListener('click', () => { if (cur > 0) { cur--; showStep(); } });
+  $('#ctaHero').addEventListener('click', () => track('cta_hero'));
+
+  function profilo() {
+    const nuova = val('situazione') === 'nuova';
+    let obiettivi = vals('obiettivi');
+    if (nuova && !obiettivi.includes('avvio')) obiettivi = ['avvio', ...obiettivi];
+    return {
+      situazione: val('situazione'),
+      regione: selReg.value,
+      forma: nuova ? '' : val('forma'),
+      forfettario: nuova ? false : val('forfettario') === 'si',
+      dip: nuova ? '0' : val('dip'),
+      anni: nuova ? '<1' : val('anni'),
+      under35: !!form.under35.checked,
+      donne: !!form.donne.checked,
+      disoccupato: nuova && !!form.disoccupato.checked,
+      startup: !!form.startup.checked,
+      obiettivi
+    };
+  }
+
+  // ---------- Abbinamento ----------
+  function adatto(b, p) {
+    const r = b.req || {};
+    const esistente = p.situazione === 'esistente';
+    if (r.situazione && !r.situazione.includes(p.situazione)) return false;
+    if (r.regioni && !r.regioni.includes(p.regione)) return false;
+    if (esistente && r.forme && !r.forme.includes(p.forma)) return false;
+    if (esistente && r.noForfettario && p.forfettario) return false;
+    if (r.dip && !r.dip.includes(p.dip)) return false;
+    if (r.anni && !r.anni.includes(p.anni)) return false;
+    if (r.under35 && !p.under35) return false;
+    if (r.donne && !p.donne) return false;
+    if (r.under35oDonne && !(p.under35 || p.donne)) return false;
+    if (r.startup && !p.startup) return false;
+    if (r.disoccupato && !p.disoccupato) return false;
+    if (b.obiettivi && !b.obiettivi.some((o) => p.obiettivi.includes(o))) return false;
+    return true;
+  }
+  function trova(p) {
+    return BANDI.map((b) => ({ b, s: statoOggi(b) }))
+      .filter((x) => x.s && adatto(x.b, p))
+      .sort((a, c) => {
+        if (a.s.arrivo !== c.s.arrivo) return a.s.arrivo ? 1 : -1;
+        const ga = a.s.giorni ?? 99999, gc = c.s.giorni ?? 99999;
+        if (ga !== gc) return ga - gc;
+        return (c.b.stima || 0) - (a.b.stima || 0);
+      });
+  }
+
+  // ---------- Risultati ----------
+  let ultimi = [];
+  let profiloCorrente = null;
+  function sbloccato() { return !!store.get('sbloccato'); }
+
+  function tagStato(s) {
+    if (s.arrivo) return s.ap ? `<span class="tag arrivo">In arrivo: dal ${fmtShort(s.ap)}</span>` : '<span class="tag arrivo">In arrivo</span>';
+    if (s.giorni === null) return '<span class="tag">Aperto</span>';
+    if (s.giorni === 0) return '<span class="tag urg">Scade oggi</span>';
+    if (s.giorni <= 10) return `<span class="tag urg">Scade tra ${s.giorni} ${s.giorni === 1 ? 'giorno' : 'giorni'}</span>`;
+    if (s.giorni <= 60) return `<span class="tag soon">Scade il ${fmtShort(today() + s.giorni * DAY)}</span>`;
+    return '<span class="tag">Aperto</span>';
+  }
+
+  function cardBando({ b, s }, i) {
+    const aperta = sbloccato();
+    return `<article class="card bando" id="b-${esc(b.id)}">
+      <div class="tags">${tagStato(s)}<span class="tag tipo">${esc(b.tipo)}</span></div>
+      <h3>${esc(b.nome)}</h3>
+      <p>${esc(b.sintesi)}</p>
+      <div class="importo">${esc(b.importo)}${b.stima ? `<small>Stima: ${euro(b.stima)} · ${esc(b.stimaNota)}</small>` : ''}</div>
+      <div class="acts">
+        <button class="btn btn-sec" type="button" data-dettagli="${esc(b.id)}" aria-expanded="false">Cosa devo fare</button>
+        <button class="btn btn-main" type="button" data-esperto="${esc(b.id)}">Fallo fare a un esperto</button>
+      </div>
+      <div class="det" hidden id="d-${esc(b.id)}">
+        <dl>
+          <dt>Per chi è</dt><dd>${esc(b.perChi)}</dd>
+          <dt>Cosa copre</dt><dd>${esc(b.cosaCopre)}</dd>
+          <dt>Scadenza</dt><dd>${esc(b.scadenzaNota)}</dd>
+          <dt>Chi lo gestisce</dt><dd>${esc(b.ente)}</dd>
+          <dt>Cosa fare</dt><dd><ol>${(b.passi || []).map((x) => `<li>${esc(x)}</li>`).join('')}</ol></dd>
+        </dl>
+        ${b.consiglio ? `<div class="tip">💡 ${esc(b.consiglio)}</div>` : ''}
+        <p class="fonte">Verificato il ${fmt(pd(b.verificato))} · <a href="${esc(b.link)}" target="_blank" rel="noopener">Fonte ufficiale</a></p>
+      </div>
+    </article>`;
+  }
+
+  function contaSu(el, fine) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || fine <= 0) { el.textContent = euro(fine); return; }
+    const t0 = performance.now(), dur = 1100;
+    function f(t) {
+      const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = euro(fine * e);
+      if (k < 1) requestAnimationFrame(f);
+    }
+    requestAnimationFrame(f);
+  }
+
+  function mostraRisultati(p, nuovo) {
+    profiloCorrente = p;
+    store.set('profilo', p);
+    ultimi = trova(p);
+    // Stima prudente: le schede alternative tra loro (stesso "gruppo") contano una volta sola, con la più alta
+    const perGruppo = {};
+    let tot = 0;
+    ultimi.forEach((x) => {
+      const v = x.b.stima || 0;
+      if (x.b.gruppo) perGruppo[x.b.gruppo] = Math.max(perGruppo[x.b.gruppo] || 0, v);
+      else tot += v;
+    });
+    tot += Object.values(perGruppo).reduce((a, v) => a + v, 0);
+    const prestito = Math.max(0, ...ultimi.map((x) => x.b.prestito || 0));
+    const aperti = ultimi.filter((x) => !x.s.arrivo).length;
+    const arrivo = ultimi.length - aperti;
+
+    const head = $('#resHead');
+    if (!ultimi.length) {
+      head.innerHTML = `<p class="k">Risultato</p><p class="big" style="font-size:30px">Per ora nessuna agevolazione nazionale adatta</p>
+        <p class="note">Prova ad aggiungere altri obiettivi, oppure lasciaci la tua email: ti avvisiamo quando esce un bando per te. Spesso ci sono bandi regionali o della Camera di Commercio che possiamo segnalarti.</p>`;
+    } else {
+      head.innerHTML = `<p class="k">${tot > 0 ? 'Stima prudente di contributi e risparmi che potresti ottenere' : 'Agevolazioni che potresti chiedere'}</p>
+        ${tot > 0 ? '<p class="big" id="bigNum">€0</p>' : `<p class="big">${ultimi.length} ${ultimi.length === 1 ? 'agevolazione' : 'agevolazioni'}</p>`}
+        <div class="res-stats">
+          <span>${ultimi.length} ${ultimi.length === 1 ? 'agevolazione adatta' : 'agevolazioni adatte'}</span>
+          ${aperti ? `<span>${aperti} ${aperti === 1 ? 'aperta' : 'aperte'} ora</span>` : ''}
+          ${arrivo ? `<span>${arrivo} in arrivo</span>` : ''}
+          ${prestito ? `<span>Prestiti agevolati fino a ${euro(prestito)}</span>` : ''}
+        </div>
+        <p class="note">${tot > 0 ? 'Somma di esempi prudenti: ogni scheda spiega come è calcolata. ' : ''}In base alle tue risposte e ai requisiti principali.</p>`;
+      const big = $('#bigNum');
+      if (big) contaSu(big, tot);
+    }
+
+    const urg = ultimi.filter((x) => !x.s.arrivo && x.s.giorni !== null && x.s.giorni <= 10);
+    $('#resUrgent').innerHTML = urg.length
+      ? `<p class="alert red">⏰ ${urg.length === 1 ? 'Una agevolazione scade' : urg.length + ' agevolazioni scadono'} entro 10 giorni: ${urg.map((x) => esc(x.b.nome)).join(', ')}.</p>` : '';
+
+    const ap = ultimi.filter((x) => !x.s.arrivo), ar = ultimi.filter((x) => x.s.arrivo);
+    $('#resList').innerHTML =
+      (ap.length ? `<p class="group-title">Aperte ora</p>${ap.map(cardBando).join('')}` : '') +
+      (ar.length ? `<p class="group-title">In arrivo: preparati prima</p>${ar.map(cardBando).join('')}` : '');
+
+    const shareText = `Ho scoperto in 1 minuto quali bandi e contributi pubblici può chiedere la mia attività. Prova anche tu, è gratis: ${SITE}?src=condivisione`;
+    $('#shareWa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+
+    $('#risultati').hidden = false;
+    $('#quiz').hidden = true;
+    if (nuovo) {
+      track('risultati', `${p.situazione}|${p.regione}|n=${ultimi.length}|tot=${tot}`);
+      const top = $('#risultati').getBoundingClientRect().top + scrollY - 70;
+      scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Dettagli, con richiesta email la prima volta
+  let attesaDettaglio = null;
+  function apriDettaglio(id) {
+    const d = $('#d-' + CSS.escape(id));
+    const btn = $(`[data-dettagli="${CSS.escape(id)}"]`);
+    if (!d) return;
+    d.hidden = !d.hidden;
+    if (btn) { btn.setAttribute('aria-expanded', String(!d.hidden)); btn.textContent = d.hidden ? 'Cosa devo fare' : 'Chiudi i dettagli'; }
+    if (!d.hidden) track('dettaglio', id);
+  }
+  document.addEventListener('click', (e) => {
+    const det = e.target.closest('[data-dettagli]');
+    if (det) {
+      const id = det.dataset.dettagli;
+      if (sbloccato()) apriDettaglio(id);
+      else { attesaDettaglio = id; apri('#mGate'); track('gate_mostrato'); }
+      return;
+    }
+    const esp = e.target.closest('[data-esperto]');
+    if (esp) apriEsperto(esp.dataset.esperto);
+  });
+
+  // ---------- Modali ----------
+  let lastFocus = null;
+  function apri(sel) {
+    lastFocus = document.activeElement;
+    const m = $(sel); m.hidden = false; document.body.style.overflow = 'hidden';
+    const f = m.querySelector('input:not([type=checkbox]), button.btn'); if (f) setTimeout(() => f.focus(), 50);
+  }
+  function chiudi(m) { m.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  $$('.modal').forEach((m) => {
+    m.addEventListener('click', (e) => { if (e.target === m || e.target.closest('[data-close]')) chiudi(m); });
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $$('.modal').forEach((m) => { if (!m.hidden) chiudi(m); }); });
+
+  const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) && v.length <= 254;
+  function profiloBreve() {
+    const p = profiloCorrente || store.get('profilo') || {};
+    return { ...p, bandi: ultimi.map((x) => x.b.id) };
+  }
+
+  function sblocca() {
+    store.set('sbloccato', true);
+    const id = attesaDettaglio; attesaDettaglio = null;
+    chiudi($('#mGate'));
+    if (id) setTimeout(() => apriDettaglio(id), 60);
+  }
+  $('#gSkip').addEventListener('click', () => { track('gate_saltato'); sblocca(); });
+  $('#gateForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = $('#gEmail').value.trim().toLowerCase();
+    const err = $('#gErr'); err.hidden = true;
+    if (!emailOk(email)) { err.textContent = 'Controlla l\'email: non sembra valida.'; err.hidden = false; return; }
+    if (!$('#gConsenso').checked) { err.textContent = 'Per ricevere gli avvisi serve il tuo consenso.'; err.hidden = false; return; }
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) { sblocca(); toast('Modalità prova: email non salvata'); return; }
+    const btn = $('#gBtn'); btn.disabled = true; btn.textContent = 'Un attimo…';
+    try {
+      const res = await sbInsert('ts_contatti', { email, consenso_avvisi: true, profilo: profiloBreve(), fonte: FONTE });
+      if (!res.ok && res.status !== 409) throw new Error('HTTP ' + res.status);
+      track('iscrizione');
+      store.set('email', email);
+      sblocca();
+      toast(res.status === 409 ? 'Eri già iscritto: avvisi attivi' : 'Fatto! Avvisi attivi');
+    } catch (ex) {
+      err.textContent = 'Non siamo riusciti a salvare l\'email. Riprova tra poco oppure continua senza email.'; err.hidden = false;
+    } finally { btn.disabled = false; btn.textContent = 'Attiva gli avvisi e vedi i dettagli'; }
+  });
+
+  let espertoBando = '';
+  function apriEsperto(id) {
+    espertoBando = id || '';
+    const b = BANDI.find((x) => x.id === id);
+    $('#eSub').textContent = b
+      ? `Per: ${b.nome}. Ti ricontattiamo per una prima valutazione gratuita. Nessun impegno.`
+      : 'Ti ricontattiamo per una prima valutazione gratuita di tutte le agevolazioni adatte a te. Nessun impegno.';
+    $('#espertoForm').hidden = false; $('#eOk').hidden = true; $('#eErr').hidden = true;
+    const em = store.get('email'); if (em && !$('#eEmail').value) $('#eEmail').value = em;
+    apri('#mEsperto');
+    track('esperto_aperto', id || 'generale');
+  }
+  $('#espertoForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nome = $('#eNome').value.trim(), tel = $('#eTel').value.trim(), email = $('#eEmail').value.trim().toLowerCase(), msg = $('#eMsg').value.trim();
+    const err = $('#eErr'); err.hidden = true;
+    const fail = (m) => { err.textContent = m; err.hidden = false; };
+    if (nome.length < 2) return fail('Scrivi il tuo nome.');
+    if (tel.replace(/\D/g, '').length < 8) return fail('Controlla il numero di telefono.');
+    if (email && !emailOk(email)) return fail('L\'email non sembra valida. Correggila o lascia il campo vuoto.');
+    if (!$('#eConsenso').checked) return fail('Per contattarti serve il tuo consenso.');
+    const b = BANDI.find((x) => x.id === espertoBando);
+    const waText = `Ciao, sono ${nome}. Vorrei una valutazione${b ? ' per "' + b.nome + '"' : ' delle agevolazioni adatte a me'} (TiSpetta).`;
+    $('#eWa').href = `https://wa.me/${WA}?text=` + encodeURIComponent(waText);
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) { $('#espertoForm').hidden = true; $('#eOk').hidden = false; return; }
+    const btn = $('#eBtn'); btn.disabled = true; btn.textContent = 'Invio in corso…';
+    try {
+      const res = await sbInsert('ts_richieste', {
+        nome, telefono: tel, email: email || null, messaggio: msg || null,
+        bando_id: b ? b.id : null, bando_nome: b ? b.nome : null,
+        profilo: profiloBreve(), consenso: true, fonte: FONTE
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      track('richiesta_esperto', espertoBando || 'generale');
+      $('#espertoForm').hidden = true; $('#eOk').hidden = false;
+    } catch (ex) {
+      fail('Invio non riuscito. Riprova oppure scrivici direttamente su WhatsApp.');
+      $('#eOk').hidden = false; $('#eOk').firstElementChild.hidden = true;
+    } finally { btn.disabled = false; btn.textContent = 'Richiedi la valutazione gratuita'; }
+  });
+  $('#eWa').addEventListener('click', () => track('whatsapp_esperto'));
+
+  // ---------- Condivisione ----------
+  $('#shareWa').addEventListener('click', () => track('condividi', 'whatsapp'));
+  $('#shareCopy').addEventListener('click', async () => {
+    const url = SITE + '?src=condivisione';
+    try { await navigator.clipboard.writeText(url); toast('Link copiato'); }
+    catch (e) { prompt('Copia il link:', url); }
+    track('condividi', 'copia');
+  });
+
+  function toast(t) {
+    const d = document.createElement('div'); d.className = 'toast'; d.textContent = t; d.setAttribute('role', 'status');
+    document.body.appendChild(d); setTimeout(() => d.remove(), 2600);
+  }
+
+  // ---------- Rifai ----------
+  $('#btnRestart').addEventListener('click', () => {
+    $('#risultati').hidden = true; $('#quiz').hidden = false; cur = 0; showStep(); scrollQuiz();
+    track('rifai');
+  });
+
+  // ---------- Segnala un problema ----------
+  $('#btnReport').addEventListener('click', () => { const f = $('#reportForm'); f.hidden = !f.hidden; if (!f.hidden) $('#repMsg').focus(); });
+  $('#reportForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const messaggio = $('#repMsg').value.trim(), email = $('#repEmail').value.trim();
+    const status = $('#repStatus');
+    if (messaggio.length < 3) { status.textContent = 'Scrivi qualche parola sul problema.'; return; }
+    if (email && !emailOk(email)) { status.textContent = 'L\'email non sembra valida. Correggila o lascia il campo vuoto.'; return; }
+    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) { status.textContent = 'Modalità prova: la segnalazione non è stata inviata.'; return; }
+    status.textContent = 'Invio in corso…';
+    try {
+      const res = await sbInsert('ts_segnalazioni', { messaggio, email: email || null, pagina: location.pathname.slice(0, 200) });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      track('segnalazione');
+      status.textContent = email ? 'Grazie! Ti risponderemo via email.' : 'Grazie! Abbiamo ricevuto la tua segnalazione.';
+      e.target.reset();
+    } catch (ex) { status.textContent = 'Invio non riuscito. Scrivici su WhatsApp, ti rispondiamo subito.'; }
+  });
+
+  // ---------- Installazione app ----------
+  let promptInstall = null;
+  window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); promptInstall = e; });
+  $('#btnInstall').addEventListener('click', async (e) => {
+    if (promptInstall) {
+      e.preventDefault(); promptInstall.prompt();
+      const r = await promptInstall.userChoice; track('installa', r.outcome); promptInstall = null;
+    }
+  });
+  if (IS_APP) $('#btnInstall').hidden = true;
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+
+  // ---------- Avvio ----------
+  showStep();
+  // Se torna un utente che ha già fatto il controllo, mostra i suoi risultati aggiornati
+  const salvato = store.get('profilo');
+  if (salvato && salvato.situazione && qs.get('src') !== 'condivisione') {
+    mostraRisultati(salvato, false);
+  }
+</script>
+</body>
+</html>
